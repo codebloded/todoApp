@@ -1,0 +1,14 @@
+<h3 >{{title}}</h3>
+    <a href="/add" class="m-2 "><button class="btn btn-danger" style="color: black;"><i class="fa fa-plus fa-lg m-1" style="color:black"></i>Add New</button></a>
+{{#each info}}
+<div class="container bg-dark m-1" style="display: flex;align-items: center;justify-content: space-between; color: whitesmoke;">
+    <p style="margin: 1px; padding: 2px;">
+    {{this.desc}}  
+    </p>
+    <div>
+    <a href="/add/{{this._id}}" class="m-2 "><i class="fa fa-pencil fa-lg" style="color:lime;"></i></a>
+    <a href="/delete/{{this._id}}" class="m-2"><i class="fa fa-trash fa-lg" style="color:red;"></i></a>
+    </div>
+
+</div>
+{{/each}}

@@ -1,0 +1,20 @@
+<h2>{{title}}</h2>
+<form action="/add" method="POST">
+
+<div class="form-group row">
+    <input type="hidden" name="_id" value="{{todo._id}}" id="">
+    {{!-- <label style="display: inline-block;">Duration </label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" name="name" value="{{todo.name}}" style=" auto; width: auto; display: inline-block;">
+  </div> --}}
+    <div class="form-group">
+        <label>TODO</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" cols="50" name="desc" rows="5" >{{todo.desc}}</textarea>
+    <button class="btn btn-primary my-2 mx-1"  type="submit">
+    <i class="fa fa-plus" style="color: black;"></i>
+    Add TODOs
+</button>
+
+    </div>
+        
+</form>
