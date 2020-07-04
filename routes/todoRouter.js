@@ -8,7 +8,14 @@ todoRouter.get('/',(req,res)=>{
     res.status(200).render('todo/todo.hbs')
 })
 
+todoRouter.get('/add',(req,res)=>{
+    res.status(200).render('todo/addTodo.hbs',{
+        title:'Add Your TODO',
+        todo:req.body
+    });
+})
 todoRouter.post('/',(req,res)=>{
+
     if(req.body._id == '')
     {
         insertTodo(req,res)
@@ -25,7 +32,8 @@ function insertTodo(req,res){
     var todo = new Todo();
   
     todo.desc = req.body.desc;
-    if(todo.desc=="")
+  
+    if(todo.desc ==undefined)
     {
         res.status(200).render('todo/addTodo.hbs',{
             title:'Add Your TODO',
@@ -79,7 +87,7 @@ todoRouter.get('/info',(req,res)=>{
 todoRouter.get('/:id',(req,res)=>{
     Todo.findById(req.params.id,(err,docs)=>{
         res.status(200).render('todo/addTodo.hbs',{
-            title:"Update Your TODO",
+            title:"Update TODO",
             todo:docs 
         })
     })
@@ -97,10 +105,11 @@ function updateTodo(req,res){
             res.status(200).redirect('/add/info')
         }
         else{
-            res.status(200).render('todo/addTodo.hbs',{
-                title:'Update TODO',
-                todo:req.body
-            });
+               res.status(200).render('todo/addTodo.hbs',{
+                    title:'Updatex   TODO',
+                    todo:req.body
+                });
+            
             console.log("Some error occured on updating the TODO"+err);
         }
     });
